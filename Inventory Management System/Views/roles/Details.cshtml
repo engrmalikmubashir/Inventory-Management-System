@@ -1,0 +1,33 @@
+﻿@model Inventory_Management_System.role
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="alert alert-dark text-center">Role Details</h2>
+
+<div>
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.r_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.r_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.r_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.r_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.r_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

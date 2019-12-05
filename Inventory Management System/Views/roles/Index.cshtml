@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Inventory_Management_System.role>
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles</h2>
+
+<p>
+    <a href="@Url.Action("Create","roles")" class="btn btn-success"><i class="fa fa-plus"></i> Add New Role</a>
+    @*   @Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.r_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.r_status)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.r_name)
+                </td>
+                <td>
+                    @{
+                        if (item.r_status == Convert.ToByte(1))
+                        {
+                            <p>Active</p>
+                        }
+                        else if (item.r_status == 0)
+                        {
+                            <p>In-Active</p>
+                        }
+                    }
+                   @* @Html.DisplayFor(modelItem => item.r_status)*@
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.r_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.r_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.r_id })
+                </td>
+            </tr>
+
+        </tbody>
+    }
+
+</table>
